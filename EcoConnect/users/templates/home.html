@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-light d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold fade-in">Connect. Conserve. Create Change.</h1>
+        <p class="lead fade-in-delay">Join the EcoConnect community to make a sustainable impact on the planet.</p>
+        <a href="#" class="btn btn-success btn-lg mt-3 slide-up">Get Started</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="container my-5 fade-up">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">About EcoConnect</h2>
+        <p class="text-muted">EcoConnect is your digital platform to discover, participate, and collaborate on eco-friendly initiatives that drive real change in communities.</p>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-md-6 mb-4">
+            <img src="#" class="img-fluid rounded shadow" alt="Eco">
+        </div>
+        <div class="col-md-6">
+            <ul class="list-unstyled fs-5">
+                <li>🌱 Participate in green initiatives</li>
+                <li>🌍 Attend environmental events</li>
+                <li>♻️ Buy or sell sustainable products</li>
+                <li>💬 Discuss ideas in the community forum</li>
+                <li>📰 Stay updated with eco news</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Explore Section -->
+<section class="bg-light py-5 fade-up">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Explore EcoConnect</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm hover-card p-4">
+                    <i class="bi bi-tree display-4 text-success"></i>
+                    <h5 class="mt-3">Initiatives</h5>
+                    <p>Join local environmental drives and green campaigns.</p>
+                    <a href="#" class="btn btn-outline-success">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm hover-card p-4">
+                    <i class="bi bi-calendar-event display-4 text-success"></i>
+                    <h5 class="mt-3">Events</h5>
+                    <p>Attend workshops, tree-plantation drives, and clean-up events.</p>
+                    <a href="#" class="btn btn-outline-success">View Events</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm hover-card p-4">
+                    <i class="bi bi-cart-check display-4 text-success"></i>
+                    <h5 class="mt-3">Marketplace</h5>
+                    <p>Buy and sell eco-friendly, sustainable products locally.</p>
+                    <a href="#" class="btn btn-outline-success">Visit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Forum + Feedback + News -->
+<section class="container my-5 fade-up">
+    <div class="row text-center g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm hover-card p-4">
+                <i class="bi bi-chat-dots display-4 text-success"></i>
+                <h5 class="mt-3">Community Forum</h5>
+                <p>Engage in eco-discussions and share sustainability ideas.</p>
+                <a href="#" class="btn btn-outline-success">Join Forum</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm hover-card p-4">
+                <i class="bi bi-newspaper display-4 text-success"></i>
+                <h5 class="mt-3">Eco News</h5>
+                <p>Stay informed with environmental updates and stories.</p>
+                <a href="#" class="btn btn-outline-success">Read News</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm hover-card p-4">
+                <i class="bi bi-envelope-heart display-4 text-success"></i>
+                <h5 class="mt-3">Feedback</h5>
+                <p>Share your thoughts and help us improve EcoConnect.</p>
+                <a href="#" class="btn btn-outline-success">Give Feedback</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section text-center text-light py-5 fade-in">
+    <div class="container">
+        <h2 class="fw-bold">Be Part of the Green Revolution 🌍</h2>
+        <p class="lead">Your small step today creates a cleaner tomorrow. Join our eco-community now!</p>
+        <a href="#" class="btn btn-light btn-lg mt-3">Join Now</a>
+    </div>
+</section>
+{% endblock %}

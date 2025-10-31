@@ -1,0 +1,59 @@
+/* Hero Section */
+.hero-section {
+    background: url('../images/eco-bg.jpg') center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+}
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover Animation */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #198754, #27ae60);
+}
+
+/* Fade Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.2s ease forwards;
+}
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s ease forwards 0.3s;
+}
+.slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 1.2s ease forwards 0.5s;
+}
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
