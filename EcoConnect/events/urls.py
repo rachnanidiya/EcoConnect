@@ -1,7 +1,9 @@
-from django.contrib import admin
-from django.urls import include, path
-from events import views
+from django.urls import path
+from . import views
+
+app_name = 'events'
 
 urlpatterns = [
-    path('',views.home)
+    path('', views.event_list, name='event_list'),
+    path('<int:id>/', views.event_detail, name='event_detail'),
 ]

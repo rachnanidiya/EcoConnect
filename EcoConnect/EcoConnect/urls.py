@@ -21,10 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
     path('initiatives/', include('initiatives.urls')),
-    #path('events/', include('events.urls')),
+    path('events/', include('events.urls')),
     #path('marketplace/', include('marketplace.urls')),
     #path('forum/', include('forum.urls')),
-    #path('news/', include('news.urls')),
+    path('news/', include('news.urls')),
     #path('feedback/', include('feedback.urls')),
     #path('dashboard/', include('dashboard.urls')),
    

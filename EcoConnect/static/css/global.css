@@ -165,3 +165,18 @@
     text-align: center;
   }
 }
+/* News cards hover animation */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* News detail image */
+.card-img-top {
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
