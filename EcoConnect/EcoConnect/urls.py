@@ -19,7 +19,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('users.urls')),
+    path('',include('home.urls')),
+    path('users/', include('users.urls')),
     path('initiatives/', include('initiatives.urls')),
     path('events/', include('events.urls')),
     #path('marketplace/', include('marketplace.urls')),

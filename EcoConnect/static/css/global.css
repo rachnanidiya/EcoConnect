@@ -180,3 +180,20 @@
     object-fit: cover;
     border-radius: 0.5rem 0.5rem 0 0;
 }
+.profile-img img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+}
+
+.bio {
+  font-size: 0.95rem;
+  background-color: #f8f9fa;
+}
+
+.eco-points span {
+  color: #198754;
+}
