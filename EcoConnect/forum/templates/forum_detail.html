@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5" style="max-width: 850px;">
+  
+  <!-- Main Discussion Card -->
+  <div class="forum-main-card">
+    <div class="forum-header">
+      <h2 class="fw-bold mb-1">{{ post.title }}</h2>
+      <p class="text-muted small mb-0">By <strong>{{ post.author }}</strong> • {{ post.date }}</p>
+    </div>
+    <div class="forum-body">
+      <p class="fs-5">{{ post.content }}</p>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="comments-section mt-5">
+    <h5 class="fw-bold text-success mb-3">💬 Discussion</h5>
+    {% for comment in comments %}
+    <div class="comment-card">
+      <div class="comment-header">
+        <span class="fw-semibold">{{ comment.author }}</span>
+        <span class="small text-muted">{{ comment.date }}</span>
+      </div>
+      <div class="comment-body">{{ comment.text }}</div>
+    </div>
+    {% empty %}
+    <p class="text-muted">No comments yet. Be the first to share your thoughts!</p>
+    {% endfor %}
+  </div>
+
+  <!-- Add Comment -->
+  <div class="add-comment mt-5">
+    <h6 class="fw-bold mb-3">Add a Comment</h6>
+    <form method="POST">
+      {% csrf_token %}
+      <textarea class="form-control rounded-3 mb-3" rows="3" placeholder="Share your thoughts..."></textarea>
+      <button type="submit" class="btn btn-success rounded-pill px-4">Post</button>
+    </form>
+  </div>
+</div>
+
+<style>
+.forum-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+.forum-header {
+  border-bottom: 2px solid #e8f5e9;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+.comment-card {
+  background: #f9fdf9;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.comment-body {
+  color: #333;
+}
+textarea:focus {
+  border-color: #198754 !important;
+  box-shadow: 0 0 6px rgba(25,135,84,0.3);
+}
+</style>
+{% endblock %}
