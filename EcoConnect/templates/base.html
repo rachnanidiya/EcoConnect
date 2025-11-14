@@ -1,131 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoConnect | {% block title %}{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/global.css">
-    <style>
-        .navbar {
-            animation: slideDown 0.8s ease forwards;
-            transition: all 0.4s ease-in-out;
-        }
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/global.css" />
+    <style></style>
+  </head>
 
-        .navbar-brand {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 0.4s;
-        }
-
-        .navbar-nav .nav-link {
-            position: relative;
-            color: #333;
-            font-weight: 500;
-            margin-right: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #198754;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 3px;
-            width: 0;
-            height: 2px;
-            background: #198754;
-            transition: width 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .navbar.scrolled {
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease-in-out;
-        }
-
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container">
         <a class="navbar-brand fw-bold text-success" href="#">
-            <i class="bi bi-leaf"></i> EcoConnect
+          <i class="bi bi-leaf"></i> EcoConnect
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                 <li class="nav-item"><a class="nav-link" href="/initiatives/">Initiatives</a></li>
-                <li class="nav-item"><a class="nav-link" href="/events/">Events</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Marketplace</a></li>
-                <li class="nav-item"><a class="nav-link" href="/forum/">Forum</a></li>
-                <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
-                <li class="nav-item"><a class="nav-link" href="/feedback/">Feedback</a></li>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+           
+            <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+           
 
-                {% if user.is_authenticated %}
-                <li class="nav-item"><a class="btn btn-outline-success ms-2" href="/users/logout/">Logout</a></li>
-                <li class="nav-item"><a class="btn btn-outline-success ms-2" href="/users/profile/">Profile</a></li>
-              
-                {% else %}
-                    <li class="nav-item"><a class="btn btn-success ms-2" href="/users/login/">Login</a></li>
-                    <li class="nav-item"><a class="btn btn-outline-success ms-2" href="/users/register/">Register</a></li>
-                {% endif %}
-            </ul>
+            {% if user.is_authenticated %}
+             <li class="nav-item">
+              <a class="nav-link" href="/initiatives/">Initiatives</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/events/">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Marketplace</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/forum/">Forum</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="/feedback/">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person-circle fs-4 text-success"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="/users/profile/">My Profile</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="/users/logout/"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="btn btn-success ms-2" href="/users/login/">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-success ms-2" href="/users/register/"
+                >Register</a
+              >
+            </li>
+            {% endif %}
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
+    <div style="margin-top: 90px"></div>
 
-<div style="margin-top: 90px;"></div>
+    {% block content %}{% endblock %}
 
-{% block content %}{% endblock %}
+    <footer class="bg-light border-top mt-5 py-5">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-4">
+            <h4 class="text-success fw-bold">EcoConnect</h4>
+            <p class="text-muted small">
+              Connecting communities to a greener and cleaner future. Stay
+              informed, act responsibly, and make an impact.
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-semibold mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="/" class="text-secondary text-decoration-none">Home</a>
+              </li>
+              <li>
+                <a href="/events/" class="text-secondary text-decoration-none"
+                  >Events</a
+                >
+              </li>
+              <li>
+                <a href="/news/" class="text-secondary text-decoration-none"
+                  >News</a
+                >
+              </li>
+              <li>
+                <a href="/feedback/" class="text-secondary text-decoration-none"
+                  >Feedback</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-semibold mb-3">Contact</h5>
+            <p class="mb-1 text-secondary small">EcoConnect Team</p>
+            <p class="mb-1 text-secondary small">support@ecoconnect.com</p>
+            <p class="mb-1 text-secondary small">+91 98765 43210</p>
+          </div>
+        </div>
 
-<footer class="bg-light text-center py-3 mt-5 border-top">
-    <p class="mb-0">&copy; 2025 EcoConnect | Designed with 💚 by Diya</p>
-</footer>
+        <div class="text-center mt-4">
+          <p class="small text-muted mb-0">&copy; 2025 EcoConnect</p>
+        </div>
+      </div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    window.addEventListener("scroll", function() {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 40) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    });
-</script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

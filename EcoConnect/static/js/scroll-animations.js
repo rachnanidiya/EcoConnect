@@ -1,4 +1,3 @@
-// tiny IntersectionObserver to add `in-view` class to .anim elements when visible
 document.addEventListener('DOMContentLoaded', function () {
   const animEls = document.querySelectorAll('.anim');
 

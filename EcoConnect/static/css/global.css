@@ -1,63 +1,57 @@
-/* Hero Section */
 .hero-section {
-    background: url('../images/eco-bg.jpg') center/cover no-repeat;
-    height: 100vh;
-    position: relative;
+  background: url("/static/images/i1.jpg") center/cover no-repeat;
+  height: 100vh;
+  position: relative;
 }
 .hero-section::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 .hero-section .container {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
-
-/* Hover Animation */
 .hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .hover-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
 }
 
-/* CTA Section */
 .cta-section {
-    background: linear-gradient(135deg, #198754, #27ae60);
+  background: linear-gradient(135deg, #198754, #27ae60);
 }
 
-/* Fade Animations */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.2s ease forwards;
 }
 .fade-in-delay {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1.5s ease forwards 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s ease forwards 0.3s;
 }
 .slide-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 1.2s ease forwards 0.5s;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeIn 1.2s ease forwards 0.5s;
 }
 .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1.2s ease forwards;
 }
 
 @keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-/* 🌿 Initiatives Page Styling */
 .initiatives-section {
   background-color: #f9fdf9;
   padding: 60px 0;
@@ -117,8 +111,6 @@
 .initiative-card .btn:hover {
   transform: scale(1.05);
 }
-
-/* 🌎 Detail Page Styling */
 .initiative-detail-section {
   padding: 80px 0;
   background: #f5faf5;
@@ -150,11 +142,15 @@
   background: #157347;
   transform: translateY(-2px);
 }
-
-/* 🔄 Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -165,20 +161,18 @@
     text-align: center;
   }
 }
-/* News cards hover animation */
 .hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .hover-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* News detail image */
 .card-img-top {
-    max-height: 280px;
-    object-fit: cover;
-    border-radius: 0.5rem 0.5rem 0 0;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 .profile-img img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -196,4 +190,164 @@
 
 .eco-points span {
   color: #198754;
+}
+.navbar {
+  animation: slideDown 0.8s ease forwards;
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar-brand {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.4s;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: #333;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #198754;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0;
+  height: 2px;
+  background: #198754;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.forum-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+.forum-header {
+  border-bottom: 2px solid #e8f5e9;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+.comment-card {
+  background: #f9fdf9;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.comment-body {
+  color: #333;
+}
+textarea:focus {
+  border-color: #198754 !important;
+  box-shadow: 0 0 6px rgba(25, 135, 84, 0.3);
+}
+.forum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.forum-card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.forum-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+.forum-card-content {
+  padding: 1.5rem;
+}
+.forum-title {
+  font-weight: 700;
+  color: #198754;
+  margin-bottom: 0.5rem;
+}
+.forum-meta {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+.forum-desc {
+  color: #444;
+  font-size: 1rem;
+}
+.forum-footer {
+  background: #f0fff0;
+  padding: 0.75rem 1.5rem;
+  text-align: right;
+}
+.profile-card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.profile-cover {
+  height: 160px;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+.profile-img-wrapper {
+  margin-top: -70px;
+}
+.profile-img-wrapper img {
+  border: 4px solid white;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+}
+.info-box {
+  background: #f6fdf7;
+  border-left: 4px solid #27ae60;
+  padding: 12px 15px;
+  border-radius: 10px;
+}
+.eco-badge {
+  background: #e8f8f0;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #d2f5de;
 }

@@ -12,7 +12,7 @@
         {% for article in news_articles %}
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow hover-card">
-                <img src="#" class="card-img-top" alt="{{ article.title }}">
+                <img src="{% static article.image %}" class="card-img-top" alt="{{ article.title }}">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">{{ article.title }}</h5>
                     <p class="card-text text-muted small">{{ article.date }}</p>

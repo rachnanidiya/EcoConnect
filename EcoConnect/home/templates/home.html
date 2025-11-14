@@ -8,26 +8,35 @@
     <div class="container">
         <h1 class="display-4 fw-bold fade-in">Connect. Conserve. Create Change.</h1>
         <p class="lead fade-in-delay">Join the EcoConnect community to make a sustainable impact on the planet.</p>
-        <a href="#" class="btn btn-success btn-lg mt-3 slide-up">Get Started</a>
     </div>
 </section>
 
 <section class="container my-5 fade-up">
-    <div class="text-center mb-4">
+    <div class="text-center mb-5">
         <h2 class="fw-bold">About EcoConnect</h2>
-        <p class="text-muted">EcoConnect is your digital platform to discover, participate, and collaborate on eco-friendly initiatives that drive real change in communities.</p>
+        <p class="text-muted mx-auto" style="max-width: 750px;">
+            EcoConnect is a platform that empowers people to discover, participate, 
+            and collaborate on environment-friendly activities that bring meaningful 
+            change to communities and the planet.
+        </p>
     </div>
-    <div class="row align-items-center">
-        <div class="col-md-6 mb-4">
-            <img src="#" class="img-fluid rounded shadow" alt="Eco">
+
+    <div class="row align-items-center justify-content-center">
+        <!-- Image Column -->
+        <div class="col-md-5 mb-4 text-center">
+            <img src="/static/images/i3.jpg" 
+                 class="img-fluid rounded shadow about-image" 
+                 alt="EcoConnect">
         </div>
+
+        <!-- Text Column -->
         <div class="col-md-6">
-            <ul class="list-unstyled fs-5">
-                <li>🌱 Participate in green initiatives</li>
-                <li>🌍 Attend environmental events</li>
-                <li>♻️ Buy or sell sustainable products</li>
-                <li>💬 Discuss ideas in the community forum</li>
-                <li>📰 Stay updated with eco news</li>
+            <ul class="list-unstyled fs-5 lh-lg">
+                <li>• Participate in green initiatives</li>
+                <li>• Attend environmental events</li>
+                <li>• Buy or sell sustainable products</li>
+                <li>• Join discussions in the community forum</li>
+                <li>• Stay updated with the latest eco news</li>
             </ul>
         </div>
     </div>
@@ -42,7 +51,7 @@
                     <i class="bi bi-tree display-4 text-success"></i>
                     <h5 class="mt-3">Initiatives</h5>
                     <p>Join local environmental drives and green campaigns.</p>
-                    <a href="#" class="btn btn-outline-success">Explore</a>
+                    <a href="/initiatives/" class="btn btn-outline-success">Explore</a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -50,7 +59,7 @@
                     <i class="bi bi-calendar-event display-4 text-success"></i>
                     <h5 class="mt-3">Events</h5>
                     <p>Attend workshops, tree-plantation drives, and clean-up events.</p>
-                    <a href="#" class="btn btn-outline-success">View Events</a>
+                    <a href="/events/" class="btn btn-outline-success">View Events</a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -72,7 +81,7 @@
                 <i class="bi bi-chat-dots display-4 text-success"></i>
                 <h5 class="mt-3">Community Forum</h5>
                 <p>Engage in eco-discussions and share sustainability ideas.</p>
-                <a href="#" class="btn btn-outline-success">Join Forum</a>
+                <a href="/forum/" class="btn btn-outline-success">Join Forum</a>
             </div>
         </div>
         <div class="col-md-4">
@@ -80,7 +89,7 @@
                 <i class="bi bi-newspaper display-4 text-success"></i>
                 <h5 class="mt-3">Eco News</h5>
                 <p>Stay informed with environmental updates and stories.</p>
-                <a href="#" class="btn btn-outline-success">Read News</a>
+                <a href="/news/" class="btn btn-outline-success">Read News</a>
             </div>
         </div>
         <div class="col-md-4">
@@ -88,7 +97,7 @@
                 <i class="bi bi-envelope-heart display-4 text-success"></i>
                 <h5 class="mt-3">Feedback</h5>
                 <p>Share your thoughts and help us improve EcoConnect.</p>
-                <a href="#" class="btn btn-outline-success">Give Feedback</a>
+                <a href="/feedback/" class="btn btn-outline-success">Give Feedback</a>
             </div>
         </div>
     </div>
@@ -96,9 +105,24 @@
 
 <section class="cta-section text-center text-light py-5 fade-in">
     <div class="container">
-        <h2 class="fw-bold">Be Part of the Green Revolution 🌍</h2>
+        <h2 class="fw-bold">Be Part of the Green Revolution /h2>
         <p class="lead">Your small step today creates a cleaner tomorrow. Join our eco-community now!</p>
-        <a href="#" class="btn btn-light btn-lg mt-3">Join Now</a>
+        <a href="/users/login/" class="btn btn-light btn-lg mt-3">Join Now</a>
     </div>
 </section>
+<style>
+
+    .about-img-wrapper {
+        max-width: 100%;
+        max-height: 350px;         
+        overflow: hidden;           
+        border-radius: 12px;
+    }
+
+    .about-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;         
+    }
+</style>
 {% endblock %}
