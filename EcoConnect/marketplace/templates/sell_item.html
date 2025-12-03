@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-center">Sell a Product</h2>
+
+<form class="mx-auto mt-4" style="max-width: 450px;">
+    <input type="text" class="form-control mb-3" placeholder="Product Name">
+    <textarea class="form-control mb-3" placeholder="Description"></textarea>
+    <input type="number" class="form-control mb-3" placeholder="Price">
+    <input type="file" class="form-control mb-3">
+    <button class="btn btn-primary w-100">Submit</button>
+</form>
+
+{% endblock %}

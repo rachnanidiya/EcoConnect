@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 class="text-center">Product Details</h2>
+
+<div class="card mx-auto mt-4" style="max-width: 500px;">
+    <img src="{% static product.image %}" class="card-img-top">
+
+    <div class="card-body">
+        <h4>{{ product.title }}</h4>
+
+        <p><strong>Original Price:</strong> ₹{{ original_price }}</p>
+
+        <div class="alert alert-success">
+            <strong>EcoPoints Applied:</strong> {{ points_used }} pts  
+            <br>
+            <strong>You Have:</strong> {{ user_points }} pts  
+        </div>
+
+        <p class="fw-bold fs-5">
+            Final Price After EcoPoints:  
+            <span class="text-success">₹{{ final_price }}</span>
+        </p>
+
+        <p>{{ product.description }}</p>
+
+        <button class="btn btn-success w-100">Buy Now using EcoPoints</button>
+    </div>
+</div>
+
+{% endblock %}
