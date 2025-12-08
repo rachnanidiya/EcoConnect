@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="fw-bold mb-4 text-center">Admin Dashboard</h2>
+
+    <!-- STATISTICS ROW -->
+    <div class="row mb-5 text-center">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6 class="text-muted">Total Products</h6>
+                <h3 class="fw-bold">{{ stats.total_products }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6 class="text-muted">Total Users</h6>
+                <h3 class="fw-bold">{{ stats.total_users }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6 class="text-muted">Orders</h6>
+                <h3 class="fw-bold">{{ stats.total_orders }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6 class="text-muted">Complaints</h6>
+                <h3 class="fw-bold">{{ stats.total_complaints }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ACTION CARDS -->
+    <h4 class="fw-bold mb-4">Quick Actions</h4>
+
+    <div class="row g-4">
+
+        <!-- PRODUCTS -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:products_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-bag-fill display-5 text-success"></i>
+                        <h5 class="fw-bold mt-3">Manage Products</h5>
+                        <p class="text-muted small">Add, update, or remove marketplace products.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- USERS -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:users_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-people-fill display-5 text-primary"></i>
+                        <h5 class="fw-bold mt-3">Manage Users</h5>
+                        <p class="text-muted small">View all registered users.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- ORDERS -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:orders_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cart-check-fill display-5 text-warning"></i>
+                        <h5 class="fw-bold mt-3">Manage Orders</h5>
+                        <p class="text-muted small">Track and manage customer orders.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- COMPLAINTS -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:complaints_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-exclamation-octagon-fill display-5 text-danger"></i>
+                        <h5 class="fw-bold mt-3">Manage Complaints</h5>
+                        <p class="text-muted small">Review and resolve user complaints.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- NEWS -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:news_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-newspaper display-5 text-info"></i>
+                        <h5 class="fw-bold mt-3">Manage News</h5>
+                        <p class="text-muted small">Publish and update eco news articles.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- INITIATIVES -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:initiatives_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-tree-fill display-5 text-success"></i>
+                        <h5 class="fw-bold mt-3">Manage Initiatives</h5>
+                        <p class="text-muted small">Add or update eco initiatives.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- FEEDBACK -->
+        <div class="col-md-4">
+            <a href="{% url 'dashboard:feedback_list' %}" class="text-decoration-none text-dark">
+                <div class="card shadow-lg h-100 dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-chat-right-dots-fill display-5 text-secondary"></i>
+                        <h5 class="fw-bold mt-3">View Feedback</h5>
+                        <p class="text-muted small">Read feedback submitted by users.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.dashboard-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+}
+</style>
+
+{% endblock %}

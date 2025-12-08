@@ -27,6 +27,6 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path("news/", include("news.urls")),
     path('feedback/', include('feedback.urls')),
-    #path('dashboard/', include('dashboard.urls')),
+    path('dashboard/', include('dashboard.urls')),
    
 ]

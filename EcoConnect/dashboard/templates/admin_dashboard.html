@@ -1,0 +1,19 @@
+<h1>Admin Dashboard</h1>
+
+<div style="display:flex; gap:20px;">
+    <div>Total Users: {{ summary.total_users }}</div>
+    <div>Total Products: {{ summary.total_products }}</div>
+    <div>Total Orders: {{ summary.total_orders }}</div>
+    <div>Pending Complaints: {{ summary.pending_complaints }}</div>
+    <div>Total Revenue: ₹{{ summary.revenue }}</div>
+</div>
+
+<hr>
+
+<h2>Manage Sections</h2>
+<ul>
+    <li><a href="/admin/products/">Manage Products</a></li>
+    <li><a href="/admin/users/">Manage Users</a></li>
+    <li><a href="/admin/orders/">Manage Orders</a></li>
+    <li><a href="/admin/complaints/">Manage Complaints</a></li>
+</ul>

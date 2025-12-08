@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+    <h3 class="fw-bold">Add Product</h3>
+
+    <form>
+        <input type="text" class="form-control mb-3" placeholder="Product Name">
+        <input type="number" class="form-control mb-3" placeholder="Price">
+        <input type="number" class="form-control mb-3" placeholder="Stock">
+
+        <button class="btn btn-success">Save</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<h1>Manage Products</h1>
+
+<a href="/admin/products/add/">+ Add Product</a>
+<hr>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th><th>Name</th><th>Price</th><th>Eco Points</th><th>Actions</th>
+    </tr>
+
+    {% for p in products %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>₹{{ p.price }}</td>
+        <td>{{ p.eco_points }}</td>
+        <td>
+            <a href="/admin/products/edit/{{ p.id }}/">Edit</a> |
+            <a href="/admin/products/delete/{{ p.id }}/">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
