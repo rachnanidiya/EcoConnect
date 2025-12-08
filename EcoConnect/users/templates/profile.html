@@ -2,52 +2,89 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="/static/css/global.css">
+<div class="container mt-5">
+    <h2 class="fw-bold text-center mb-4">My Profile</h2>
 
-<style>
+    <div class="row g-4">
 
-</style>
+        <!-- LEFT SIDE: USER INFORMATION -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white text-center">
+                    <h5 class="mb-0">User Information</h5>
+                </div>
+                <div class="card-body text-center">
+                    <img src="{% static 'images/profile.png' %}" 
+                         class="rounded-circle mb-3" width="100" height="100">
 
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-7 col-md-9">
-      <div class="card shadow profile-card border-0">
-        <div class="profile-cover"></div>
+                    <h5 class="mb-1">{{ user.username }}</h5>
+                    <p class="text-muted mb-1">{{ user.email }}</p>
 
-        <div class="card-body text-center">
+                    <hr>
 
-          <div class="profile-img-wrapper">
-            <img 
-              src="" 
-              alt="Profile Picture"
-              class="rounded-circle shadow"
-            >
-          </div>
+                    <h6 class="fw-bold">EcoPoints</h6>
+                    <p class="fs-4 text-success">{{ profile.eco_points }}</p>
 
-          <h3 class="fw-bold text-success mt-3">{{ user.username }}</h3>
-          <p class="text-muted">{{ user.email }}</p>
+                    <hr>
 
-          <div class="info-box mt-3">
-            <p class="mb-0 text-secondary fst-italic">
-              Bio: Add a short eco-journey or sustainability mission.
-            </p>
-          </div>
-
-          <div class="eco-badge mt-4">
-            <h6 class="fw-bold text-success mb-1">Eco Points</h6>
-            <span class="fs-2 fw-bold text-dark">0</span>
-          </div>
-
-          <div class="mt-4 d-flex justify-content-center gap-3">
-            <a href="/users/logout/" class="btn btn-outline-danger px-4">Logout</a>
-            <!-- <a href="#" class="btn btn-success px-4">Edit Profile</a> -->
-          </div>
-
+                    <a href="#" class="btn btn-outline-success btn-sm disabled">
+                        Edit Profile (Coming Soon)
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- RIGHT SIDE: ADDRESS MANAGEMENT -->
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">My Addresses</h5>
+                    <a href="{% url 'add_address' %}" class="btn btn-light btn-sm">
+                        <i class="bi bi-plus-lg"></i> Add Address
+                    </a>
+                </div>
+
+                <div class="card-body">
+                    {% if addresses %}
+                    
+                    {% for addr in addresses %}
+                    <div class="border rounded p-3 mb-3">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="fw-bold mb-1">{{ addr.full_name }}</h6>
+                                <p class="mb-0">{{ addr.house }}, {{ addr.street }}</p>
+                                <p class="mb-0">{{ addr.city }}, {{ addr.state }} - {{ addr.pincode }}</p>
+                                <p class="text-muted small mb-1">Phone: {{ addr.phone }}</p>
+
+                                {% if addr.is_default %}
+                                <span class="badge bg-success">Default</span>
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                <a href="{% url 'edit_address' addr.id %}" class="btn btn-sm btn-outline-primary mb-1">
+                                    Edit
+                                </a>
+
+                                <form action="{% url 'delete_address' addr.id %}" method="POST" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm btn-outline-danger"
+                                            onclick="return confirm('Delete this address?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% else %}
+                    <p class="text-muted text-center">No addresses added yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
     </div>
-  </div>
 </div>
-
 {% endblock %}
