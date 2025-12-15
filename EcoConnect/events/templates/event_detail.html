@@ -4,15 +4,17 @@
 {% block content %}
 <div class="container py-5">
     <div class="card border-0 shadow-lg">
-        <img src="{% static event.image %}" class="card-img-top" alt="{{ event.title }}">
+        {% if event.image %}
+        <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+        {% endif %}
         <div class="card-body">
             <h2 class="fw-bold">{{ event.title }}</h2>
             <p class="text-success mb-1"><i class="bi bi-calendar-event"></i> {{ event.date }}</p>
             <p class="text-muted mb-3"><i class="bi bi-geo-alt"></i> {{ event.location }}</p>
             <p class="lead">{{ event.description }}</p>
             <hr>
-            <p>{{ event.details }}</p>
-            <a href="/events/" class="btn btn-outline-success mt-3">← Back to Events</a>
+            <p>{{ event.address }}</p>
+            <a href="{% url 'events:event_list' %}" class="btn btn-outline-success mt-3">← Back to Events</a>
         </div>
     </div>
 </div>
