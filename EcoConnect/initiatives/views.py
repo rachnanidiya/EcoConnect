@@ -1,22 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from events.models import Participation
+from .models import Initiative
 
-# Create your views here.
+
 def initiatives_list(request):
-
-    initiatives = [
-        {'id': 1, 'title': 'Tree Plantation Drive', 'location': 'Delhi', 'date': '2025-11-10', 'image': 'images/tree.jpg'},
-        {'id': 2, 'title': 'Plastic-Free Week', 'location': 'Mumbai', 'date': '2025-11-15', 'image': 'images/nop2.jpg'},
-        {'id': 3, 'title': 'Beach Cleanup', 'location': 'Goa', 'date': '2025-11-20', 'image': 'images/beach2.jpg'},
-    ]
+    initiatives = Initiative.objects.all().order_by('-date')
     return render(request, 'initiatives_list.html', {'initiatives': initiatives})
 
 def initiative_detail(request, id):
-    initiative = {
-        'title': 'Tree Plantation Drive',
-        'location': 'Delhi',
-        'date': '2025-11-10',
-        'description': 'Join our tree plantation drive to make the city greener!',
-        'image': 'images/tree.jpg',
-        'organizer': 'EcoConnect Team',
-    }
+    initiative = get_object_or_404(Initiative, id=id)
     return render(request, 'initiative_detail.html', {'initiative': initiative})
+
+@login_required
+def join_initiative(request, initiative_id):
+    initiative = get_object_or_404(Initiative, id=initiative_id)
+
+    participation, created = Participation.objects.get_or_create(
+        user=request.user,
+        initiative=initiative
+    )
+
+    if created:
+        request.user.eco_points += 10
+        request.user.save()
+
+    return redirect('initiatives_list')

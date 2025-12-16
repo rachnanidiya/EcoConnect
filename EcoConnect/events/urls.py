@@ -6,4 +6,5 @@ app_name = 'events'
 urlpatterns = [
     path('', views.event_list, name='event_list'),
     path('<int:id>/', views.event_detail, name='event_detail'),
+    path('join/<int:event_id>/', views.join_event, name='join_event'),
 ]

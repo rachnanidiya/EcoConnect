@@ -2,53 +2,54 @@
 {% load static %}
 
 {% block content %}
+<div class="container py-5">
 
-<div class="text-center mb-4">
-    <h2 class="fw-bold">Eco Initiatives</h2>
-    <p class="lead text-muted">
-        Join hands to create a greener, cleaner future.
-    </p>
-</div>
-
-<div class="row justify-content-center">
-    {% for item in initiatives %}
-    <div class="col-md-4 mb-4">
-        <div class="card initiative-card shadow-sm rounded-3 border-0">
-             <img 
-                src="{% static item.image %}" 
-                class="card-img-top" 
-                alt="{{ item.title }}"
-                style="height: 240px; object-fit: cover;"
-            >
-
-            <div class="card-body text-center">
-
-                <h5 class="card-title fw-semibold mb-2">
-                    {{ item.title }}
-                </h5>
-
-                <p class="text-muted mb-1">
-                    <i class="bi bi-geo-alt me-1"></i>
-                    {{ item.location }}
-                </p>
-
-                <p class="text-muted mb-3">
-                    <i class="bi bi-calendar-event me-1"></i>
-                    {{ item.date }}
-                </p>
-
-                <a 
-                    href="{% url 'initiative_detail' item.id %}" 
-                    class="btn btn-success px-4"
-                >
-                    View Details
-                </a>
-
-            </div>
-
-        </div>
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Eco Initiatives</h2>
+        <p class="lead text-muted">
+            Join hands to create a greener, cleaner future.
+        </p>
     </div>
-    {% endfor %}
-</div>
 
+    <div class="row g-4 justify-content-center">
+        {% for item in initiatives %}
+        <div class="col-md-6 col-lg-4 d-flex">
+            <div class="card flex-fill shadow-sm border-0 rounded-3">
+
+                {% if item.image %}
+                <img src="{{ item.image.url }}"
+                     class="card-img-top"
+                     alt="{{ item.title }}"
+                     style="height:240px; object-fit:cover;">
+                {% else %}
+                <img src="{% static 'images/default-initiative.jpg' %}"
+                     class="card-img-top"
+                     alt="{{ item.title }}">
+                {% endif %}
+
+                <div class="card-body text-center d-flex flex-column">
+                    <h5 class="fw-semibold">{{ item.title }}</h5>
+
+                    <p class="text-muted mb-1">
+                        <i class="bi bi-geo-alt"></i> {{ item.location }}
+                    </p>
+
+                    <p class="text-muted mb-3">
+                        <i class="bi bi-calendar-event"></i> {{ item.date }}
+                    </p>
+
+                    <a href="{% url 'initiative_detail' item.id %}"
+                       class="btn btn-success mt-auto px-4">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <p class="text-center text-muted">No initiatives available.</p>
+        {% endfor %}
+    </div>
+
+</div>
 {% endblock %}
