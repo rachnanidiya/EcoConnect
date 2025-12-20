@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'home',
     'initiatives',
     'events',
-    'marketplace',
     'forum',
     'news',
     'feedback',

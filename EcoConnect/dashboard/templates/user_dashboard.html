@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="fw-bold mb-4 text-center">Welcome, {{ user.username }}!</h2>
+
+    <div class="row mb-5 text-center">
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Events Joined</h6>
+                <h3>{{ stats.events_count }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Initiatives</h6>
+                <h3>{{ stats.initiatives_count }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Forum Posts</h6>
+                <h3>{{ stats.forum_posts_count }}</h3>
+            </div>
+        </div>
+        
+    </div>
+
+    <h4 class="fw-bold mb-3">Your Events</h4>
+    <div class="row g-4 mb-5">
+        {% for event in joined_events %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow">
+                {% if event.image %}
+                <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.title }}</h5>
+                    <p class="text-muted">{{ event.date }}</p>
+                    <p>{{ event.description|truncatewords:20 }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>You haven't joined any events yet.</p>
+        {% endfor %}
+    </div>
+
+    <h4 class="fw-bold mb-3">Your Initiatives</h4>
+    <div class="row g-4 mb-5">
+        {% for initiative in joined_initiatives %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow">
+                {% if initiative.image %}
+                <img src="{{ initiative.image.url }}" class="card-img-top" alt="{{ initiative.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ initiative.title }}</h5>
+                    <p>{{ initiative.description|truncatewords:20 }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>You haven't participated in any initiatives yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

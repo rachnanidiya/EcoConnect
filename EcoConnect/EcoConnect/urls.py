@@ -25,7 +25,6 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('initiatives/', include('initiatives.urls')),
     path('events/', include(('events.urls', 'events'), namespace='events')),
-    path('marketplace/', include('marketplace.urls')),
     path('forum/', include('forum.urls')),
     path("news/", include("news.urls")),
     path('feedback/', include('feedback.urls')),

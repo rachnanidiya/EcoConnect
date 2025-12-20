@@ -5,13 +5,16 @@ from events.models import Participation
 
 def event_list(request):
     events = Event.objects.all()
-    print(events)  # see if any events are being fetched
     return render(request, "event_list.html", {"events": events})
 
 
 def event_detail(request, id):
     event = get_object_or_404(Event, id=id)
-    return render(request, "event_detail.html", {"event": event})
+    joined_event_ids = Participation.objects.filter(
+        user=request.user,
+        event__isnull=False
+    ).values_list('event_id', flat=True)
+    return render(request, "event_detail.html", {"event": event,'joined_event_ids': list(joined_event_ids),})
 
 @login_required
 def join_event(request, event_id):

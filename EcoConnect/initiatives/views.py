@@ -10,7 +10,11 @@ def initiatives_list(request):
 
 def initiative_detail(request, id):
     initiative = get_object_or_404(Initiative, id=id)
-    return render(request, 'initiative_detail.html', {'initiative': initiative})
+    joined_initiative_ids = Participation.objects.filter(
+        user=request.user,
+        initiative__isnull=False
+    ).values_list('initiative_id', flat=True)
+    return render(request, 'initiative_detail.html', {'initiative': initiative,'joined_initiative_ids': list(joined_initiative_ids),})
 
 @login_required
 def join_initiative(request, initiative_id):

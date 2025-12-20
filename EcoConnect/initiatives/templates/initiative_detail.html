@@ -30,9 +30,13 @@
                 <strong>Organizer:</strong> {{ initiative.organizer }}
             </p>
 
-            <a href="{% url 'join_initiative' initiative.id %}">
-    Join Initiative
-</a>
+{% if initiative.id in joined_initiative_ids %}
+    <button class="btn btn-secondary" disabled>Already Joined</button>
+{% else %}
+    <a href="{% url 'join_initiative' initiative.id %}" class="btn btn-success">
+        Join Initiative
+    </a>
+{% endif %}
 
             <a href="{% url 'initiatives_list' %}"
                class="btn btn-outline-secondary mt-3 ms-2">
